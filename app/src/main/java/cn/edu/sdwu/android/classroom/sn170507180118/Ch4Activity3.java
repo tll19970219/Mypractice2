@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class Ch3Activity extends AppCompatActivity {
+public class Ch4Activity3 extends AppCompatActivity {
  private ArrayList list;
     private TextView textView;
     @Override
