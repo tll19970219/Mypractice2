@@ -14,7 +14,7 @@ public class Ch6Activity1 extends AppCompatActivity {
         //在JAVA中获取字符串资源
         String content=getString(R.string.ok);
         Log.i(Ch6Activity1.this.toString(),content);
-
+     //固定模板
         String sms=getString(R.string.sms);
         sms=String.format(sms,100,"张三");
         Log.i(Ch6Activity1.this.toString(),sms);

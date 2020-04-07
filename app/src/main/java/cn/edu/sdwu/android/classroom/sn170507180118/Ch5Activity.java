@@ -68,7 +68,7 @@ public void alert_dialog(View view){
     builder.setPositiveButton("confirm", new DialogInterface.OnClickListener() {
         @Override
         public void onClick(DialogInterface dialogInterface, int i) {
-            //添加点击按钮后的处理
+            //添加点击按钮后进行的处理
             Toast.makeText(Ch5Activity.this,"confirm",Toast.LENGTH_SHORT).show();;
         }
     });
