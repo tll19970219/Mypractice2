@@ -7,6 +7,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -26,23 +27,23 @@ public class Ch4Activity3 extends AppCompatActivity {
         for(int i=0;i<count;i++){
             View view=linearLayout.getChildAt(i);
             if(view instanceof CheckBox){
-                final CheckBox checkBox=(CheckBox)view;
+                 CheckBox checkBox=(CheckBox)view;
                 checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                        //参数b代表是否选中,第一个参数代表事件源
                         if(b){
                             list.add(compoundButton);
                         }else{
                             list.remove(compoundButton);
                         }
                         String content="you select:";
-                     for(int t=0;t<list.size();t++){
-                         CheckBox checkBox1=(CheckBox)list.get(t);
-                         String sel=checkBox.getText().toString();
-                     content+=sel+",";
-                     }
-                   textView.setText(content);
+                        for(int t=0;t<list.size();t++){
+                            CheckBox checkBox1=(CheckBox)list.get(t);
+                            String sel=checkBox1.getText().toString();
+                            content+=sel+",";
+                        }
+                        textView.setText(content);
+                       // Toast.makeText(getApplicationContext(),content,Toast.LENGTH_SHORT).show();
                     }
                 });
             }
