@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import org.xmlpull.v1.XmlPullParser;
+
 import static java.lang.reflect.Array.getInt;
 
 public class Ch6Activity1 extends AppCompatActivity {
@@ -53,9 +55,25 @@ public class Ch6Activity1 extends AppCompatActivity {
         //注册上下文菜单
         LinearLayout linearLayout=(LinearLayout)findViewById(R.id.ch6_1_11);
         registerForContextMenu(linearLayout);
+        XmlPullParser xmlPullParser=resources.getXml(R.xml.word);
+        try{
+            while (xmlPullParser.getEventType()!=XmlPullParser.END_DOCUMENT){
+                if(xmlPullParser.getEventType()==XmlPullParser.START_TAG){
+                    //判断一下是否是word元素(words直接跳过）
+                    if(xmlPullParser.getName().equals("word")){
+                        String word=xmlPullParser.getAttributeValue(0);
+                        Log.i(Ch6Activity1.class.toString(),word);
+                    }
+                }
+                xmlPullParser.next();
+            }
+        }catch (Exception e){
+            Log.i(Ch6Activity1.class.toString(),e.toString());
+        }
+
+
 
     }
-
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         //加载自定义的菜单资源
