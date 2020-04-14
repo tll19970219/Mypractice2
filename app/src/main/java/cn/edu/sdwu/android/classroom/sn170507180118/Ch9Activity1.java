@@ -15,13 +15,15 @@ private ProgressBar progressBar;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_ch9_1);
+
         Resources resources=getResources();
         String[] countries=resources.getStringArray(R.array.countries);
+        //提示数组内容
         ArrayAdapter arrayAdapter=new ArrayAdapter(this,android.R.layout.simple_dropdown_item_1line,countries);
      AutoCompleteTextView autoCompleteTextView=(AutoCompleteTextView)findViewById(R.id.ch9_1_act);
         autoCompleteTextView.setAdapter(arrayAdapter);
 
-
+//设置进度条
       progressBar=(ProgressBar)findViewById(R.id.ch9_1_pd);
     }
     public void progressStart(View view){
